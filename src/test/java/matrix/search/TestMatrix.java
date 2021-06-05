@@ -1,4 +1,4 @@
-package matrix.seq;
+package matrix.search;
 
 import java.util.List;
 
@@ -8,6 +8,11 @@ import matrix.search.model.Matrix2D;
 import matrix.search.model.MatrixElement;
 import matrix.search.model.Point;
 
+/**
+ * 
+ * @author vaamarques
+ *
+ */
 public class TestMatrix {
 
 	@Test
