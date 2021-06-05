@@ -1,81 +1,66 @@
 package matrix.seq;
 
+import java.util.List;
+
 import org.junit.Test;
 
-import matrix.seq.model.Matrix;
+import matrix.seq.model.Matrix2D;
+import matrix.seq.model.MatrixElement;
+import matrix.seq.model.Point;
 
 public class TestMatrix {
 
 	@Test
-	public void textMatrix2x2() throws Exception {
-		
-		System.out.println("Matrix 2x2 ");
+	public void textMatrix2D3x3() throws Exception {
 
-				Matrix matrix = new Matrix(2, 2);
-		
-		matrix.fillMatrix();
-		
-		matrix.print();
-		
-		System.out.println("Bigger sequence " + matrix.getBiggerSequence());
-	}
-	
-	@Test
-	public void textMatrix3x3() throws Exception {
-		
-		System.out.println("Matrix 3x3 ");
+		System.out.println("Matrix2D 3x3 ");
 
-				Matrix matrix = new Matrix(3, 3);
-		
+		Matrix2D matrix = new Matrix2D(3, 3);
+
 		matrix.fillMatrix();
+
+		matrix.printMatrix();
+
+		List<MatrixElement<Point>> biggerSequence = matrix.getBiggerSequence();
+		for(MatrixElement<Point> el : biggerSequence) {
+			System.out.print(el.getValue()+ " ");
+		}
 		
-		matrix.print();
-		
-		System.out.println("Bigger sequence " + matrix.getBiggerSequence());
+		System.out.println();
 	}
-	
-	
+
 	@Test
-	public void textMatrix6x6() throws Exception {
-		
-		System.out.println("Matrix 6x6 ");
-		
-		Matrix matrix = new Matrix(6, 6);
-		
+	public void textMatrix2D4x4() throws Exception {
+
+		System.out.println("Matrix2D 4x4 ");
+
+		Matrix2D matrix = new Matrix2D(4, 4);
+
 		matrix.fillMatrix();
-		
-		matrix.print();
-		
-		System.out.println("Bigger sequence " + matrix.getBiggerSequence());
-		
+
+		matrix.printMatrix();
+
+		List<MatrixElement<Point>> biggerSequence = matrix.getBiggerSequence();
+		for(MatrixElement<Point> el : biggerSequence) {
+			System.out.print(el.getValue()+ " ");
+		}
+		System.out.println();
 	}
-	
-	
+
 	@Test
-	public void textMatrix9x9() throws Exception {
-		System.out.println("Matrix 9x9 ");
-		
-		Matrix matrix = new Matrix(9, 9);
-		
+	public void textMatrix2D6x6() throws Exception {
+
+		System.out.println("Matrix2D 6x6 ");
+
+		Matrix2D matrix = new Matrix2D(6, 6);
+
 		matrix.fillMatrix();
-		matrix.print();
+		matrix.printMatrix();
 		
-		System.out.println("Bigger sequence " + matrix.getBiggerSequence());
-		
+		List<MatrixElement<Point>> biggerSequence = matrix.getBiggerSequence();
+		for(MatrixElement<Point> el : biggerSequence) {
+			System.out.print(el.getValue() + " ");
+		}
+		System.out.println();
 	}
-	
-	
-	@Test
-	public void textMatrix3x9() throws Exception {
-		System.out.println("Matrix 3x9 ");
-		
-		Matrix matrix = new Matrix(3, 9);
-		
-		matrix.fillMatrix();
-		matrix.print();
-		
-		System.out.println("Bigger sequence " + matrix.getBiggerSequence());
-		
-	}
-	
 }
