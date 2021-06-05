@@ -1,6 +1,8 @@
-package matrix.seq.model;
+package matrix.search.model;
 
 import java.util.List;
+
+import matrix.search.exception.NotImplementedException;
 
 public class Matrix3D extends Matrix<MatrixElement<Point3D>>{
 

@@ -1,4 +1,4 @@
-package matrix.seq.model;
+package matrix.search.model;
 
 import java.util.List;
 

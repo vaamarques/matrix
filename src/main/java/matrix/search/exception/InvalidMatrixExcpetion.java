@@ -1,4 +1,4 @@
-package matrix.seq.model;
+package matrix.search.exception;
 
 /**
  * Exception throw when matrix is not valid

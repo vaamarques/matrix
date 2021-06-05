@@ -1,4 +1,4 @@
-package matrix.seq.model;
+package matrix.search.model;
 
 /**
  * Element of a matrix that represents a point with an value

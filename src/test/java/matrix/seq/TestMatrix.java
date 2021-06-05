@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import matrix.seq.model.Matrix2D;
-import matrix.seq.model.MatrixElement;
-import matrix.seq.model.Point;
+import matrix.search.model.Matrix2D;
+import matrix.search.model.MatrixElement;
+import matrix.search.model.Point;
 
 public class TestMatrix {
 
