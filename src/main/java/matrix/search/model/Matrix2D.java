@@ -1,6 +1,5 @@
 package matrix.search.model;
 
-import java.nio.InvalidMarkException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -193,21 +192,26 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 
 	@Override
 	public List<MatrixElement<Point>> getLongestSequence() {
+		//Get elements ordered by value
 		List<MatrixElement<Point>> elementsOrderedByValue = getElementsOrderedByValue();
-		List<MatrixElement<Point>> biggerSequence = new LinkedList<>();
+		List<MatrixElement<Point>> longestSequence = new LinkedList<>();
 
-		biggerSequence.add(elementsOrderedByValue.get(0));
+		//First element is 1
+		longestSequence.add(elementsOrderedByValue.get(0));
+		//Check elements starting at position 1
 		for (int i = 1; i < elementsOrderedByValue.size(); i++) {
 			MatrixElement<Point> matrixElement = elementsOrderedByValue.get(i);
-			MatrixElement<Point> biggerSequenceLastElement = getLastElement(biggerSequence);
-			if (matrixElement.getPoint().isAdjacent(biggerSequenceLastElement.getPoint())) {
-				biggerSequence.add(matrixElement);
+			//Get last element
+			MatrixElement<Point> longestSequenceLastElement = getLastElement(longestSequence);
+			//Next point must be adjacent of longest sequence last element
+			if (matrixElement.getPoint().isAdjacent(longestSequenceLastElement.getPoint())) {
+				longestSequence.add(matrixElement);
 			} else {
 				break;
 			}
 		}
 
-		return biggerSequence;
+		return longestSequence;
 	}
 
 	@Override
