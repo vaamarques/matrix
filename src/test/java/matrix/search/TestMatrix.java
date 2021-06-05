@@ -96,6 +96,34 @@ public class TestMatrix {
 		System.out.println();
 	}
 
+	@Test
+	public void testMatrix2D9x9() throws Exception {
+
+		System.out.println("Matrix2D 9x9 ");
+
+		Matrix2D matrix = new Matrix2D(9, 9);
+
+		matrix.fillMatrixRandomly();
+		matrix.printMatrix();
+		matrix.printLongestSequence();
+
+		System.out.println();
+	}
+	
+	@Test
+	public void testMatrix2D2x2() throws Exception {
+
+		System.out.println("Matrix2D 2x2 ");
+
+		Matrix2D matrix = new Matrix2D(2, 2);
+
+		matrix.fillMatrixRandomly();
+		matrix.printMatrix();
+		matrix.printLongestSequence();
+
+		System.out.println();
+	}
+	
 	public Set<MatrixElement<Point>> getNotValidMatrixElements(int numRows, int numColumns) {
 
 		Set<MatrixElement<Point>> elements = new LinkedHashSet<MatrixElement<Point>>();
