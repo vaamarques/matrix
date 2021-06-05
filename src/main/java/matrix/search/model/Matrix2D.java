@@ -1,5 +1,6 @@
 package matrix.search.model;
 
+import java.nio.InvalidMarkException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,7 +23,7 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 	protected int numRows;
 	protected Set<MatrixElement<Point>> elements = new HashSet<MatrixElement<Point>>();
 
-	public Matrix2D(int numColumns, int numRows) throws InvalidMatrixExcpetion {
+	public Matrix2D(int numColumns, int numRows) {
 		this.numColumns = numColumns;
 		this.numRows = numRows;
 	}
@@ -31,16 +32,15 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 		this.numColumns = numColumns;
 		this.numRows = numRows;
 		this.elements = elements;
-		if (this.elements.size() != numTotalElements()) {
-			throw new InvalidMatrixExcpetion("Matrix does not have a valid number of elements");
-		}
+		validateElements();
 	}
 
 	/**
 	 * Calculate the total number of elements
+	 * 
 	 * @return
 	 */
-	private int numTotalElements() {
+	private int getTotalNumberOfElements() {
 		return numColumns * numRows;
 	}
 
@@ -62,6 +62,17 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 	}
 
 	/**
+	 * Return matrix elements
+	 * 
+	 * @return Set elements
+	 * @throws InvalidMatrixExcpetion
+	 */
+	public void setElements(Set<MatrixElement<Point>> elements) throws InvalidMatrixExcpetion {
+		this.elements = elements;
+		validateElements();
+	}
+
+	/**
 	 * Calculate the number of spaces needed to draw the Matrix
 	 * 
 	 * @param value
@@ -69,7 +80,7 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 	 */
 	private int getNumSpaces(Integer value) {
 		String val = Integer.toString(value);
-		String numMax = Integer.toString(numColumns * numRows);
+		String numMax = Integer.toString(getTotalNumberOfElements());
 		return numMax.length() - val.length();
 	}
 
@@ -78,21 +89,24 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 	 * 
 	 * @param x
 	 * @param y
-	 * @return value of position x,y
+	 * @return value of position (x,y)
 	 */
-	public Integer getMatrixPointValue(int x, int y) {
+	public Integer getMatrixPointValue(int x, int y) throws InvalidMatrixExcpetion {
 		for (MatrixElement<Point> el : elements) {
 			if (el.getPoint().getX() == x && el.getPoint().getY() == y) {
-				return el.getValue();
+				if (el.getValue() != null) {
+					return el.getValue();
+				}
 			}
 		}
-		return null;
+		String message = String.format("Point(%s,%s) does not have value", x, y);
+		throw new InvalidMatrixExcpetion(message);
 	}
 
 	/**
 	 * Sort matrix elements in ascendant order
 	 * 
-	 * @return values sorted in ascendant order
+	 * @return matrix values sorted in ascendant order
 	 */
 	public LinkedList<MatrixElement<Point>> getElementsOrderedByValue() {
 		return getElements().stream().sorted(Comparator.comparing(MatrixElement::getValue))
@@ -102,7 +116,7 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 	/**
 	 * Fill matrix with random and unique values
 	 */
-	public void fillMatrix() {
+	public void fillMatrixRandomly() throws InvalidMatrixExcpetion {
 		elements.clear();
 		List<Integer> listValues = getListValues();
 		// Shuffle the values
@@ -119,16 +133,26 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 			}
 		}
 
+		validateElements();
+	}
+
+	private void validateElements() throws InvalidMatrixExcpetion {
+		if (elements.size() != getTotalNumberOfElements()) {
+			String message = String.format(
+					"Matrix does not have the valid size of elements. Elements are %s and must be %s", elements.size(),
+					getTotalNumberOfElements());
+			throw new InvalidMatrixExcpetion(message);
+		}
 	}
 
 	/**
-	 * Build a list of unique values
+	 * Build a list of unique values, begin at 1 and total elements
 	 * 
 	 * @return
 	 */
 	private List<Integer> getListValues() {
 		List<Integer> values = new ArrayList<>();
-		for (int x = 1; x <= numColumns * numRows; x++) {
+		for (int x = 1; x <= getTotalNumberOfElements(); x++) {
 			values.add(x);
 		}
 		return values;
@@ -152,17 +176,18 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 	}
 
 	@Override
-	public void printMatrix() {
+	public void printMatrix() throws InvalidMatrixExcpetion {
 		for (int x = 1; x <= numRows; x++) {
 			for (int y = 1; y <= numColumns; y++) {
 				Integer value = getMatrixPointValue(x, y);
-				System.out.print(value + "   ");
+				System.out.print(value + "  ");
 				int numSpaces = getNumSpaces(value);
 				for (int i = 0; i < numSpaces; i++) {
 					System.out.print(" ");
 				}
 			}
-			System.out.print("\n");
+
+			System.out.println();
 		}
 	}
 
@@ -187,8 +212,9 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 
 	@Override
 	public void printLongestSequence() {
-		for(MatrixElement<Point> el : getLongestSequence()) {
-			System.out.print(el.getValue()+ " ");
+		List<MatrixElement<Point>> longestSequence = getLongestSequence();
+		for (MatrixElement<Point> el : longestSequence) {
+			System.out.print(el.getValue() + " ");
 		}
 	}
 }

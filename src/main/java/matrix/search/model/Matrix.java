@@ -3,7 +3,7 @@ package matrix.search.model;
 import java.util.List;
 
 /**
- * 
+ * Matrix with unique elements
  * @author vaamarques
  *
  */
