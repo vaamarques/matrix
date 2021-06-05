@@ -20,6 +20,12 @@ public abstract class Matrix<T extends MatrixElement<? extends Point>> {
 	 * @return
 	 * @throws Throwable
 	 */
-	public abstract List<T> getBiggerSequence() throws Throwable;
+	public abstract List<T> getLongestSequence() throws Throwable;
+	
+	/**
+	 * Print longest sequence legibly to output
+	 * @throws Throwable
+	 */
+	public abstract void printLongestSequence() throws Throwable;
 
 }

@@ -1,12 +1,8 @@
 package matrix.search;
 
-import java.util.List;
-
 import org.junit.Test;
 
 import matrix.search.model.Matrix2D;
-import matrix.search.model.MatrixElement;
-import matrix.search.model.Point;
 
 /**
  * 
@@ -25,11 +21,8 @@ public class TestMatrix {
 		matrix.fillMatrix();
 
 		matrix.printMatrix();
-
-		List<MatrixElement<Point>> biggerSequence = matrix.getBiggerSequence();
-		for(MatrixElement<Point> el : biggerSequence) {
-			System.out.print(el.getValue()+ " ");
-		}
+		
+		matrix.printLongestSequence();
 		
 		System.out.println();
 	}
@@ -45,10 +38,8 @@ public class TestMatrix {
 
 		matrix.printMatrix();
 
-		List<MatrixElement<Point>> biggerSequence = matrix.getBiggerSequence();
-		for(MatrixElement<Point> el : biggerSequence) {
-			System.out.print(el.getValue()+ " ");
-		}
+		matrix.printLongestSequence();
+		
 		System.out.println();
 	}
 
@@ -62,10 +53,8 @@ public class TestMatrix {
 		matrix.fillMatrix();
 		matrix.printMatrix();
 		
-		List<MatrixElement<Point>> biggerSequence = matrix.getBiggerSequence();
-		for(MatrixElement<Point> el : biggerSequence) {
-			System.out.print(el.getValue() + " ");
-		}
+		matrix.printLongestSequence();
+		
 		System.out.println();
 	}
 }

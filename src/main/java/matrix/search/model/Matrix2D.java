@@ -167,7 +167,7 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 	}
 
 	@Override
-	public List<MatrixElement<Point>> getBiggerSequence() {
+	public List<MatrixElement<Point>> getLongestSequence() {
 		List<MatrixElement<Point>> elementsOrderedByValue = getElementsOrderedByValue();
 		List<MatrixElement<Point>> biggerSequence = new LinkedList<>();
 
@@ -183,5 +183,12 @@ public class Matrix2D extends Matrix<MatrixElement<Point>> {
 		}
 
 		return biggerSequence;
+	}
+
+	@Override
+	public void printLongestSequence() {
+		for(MatrixElement<Point> el : getLongestSequence()) {
+			System.out.print(el.getValue()+ " ");
+		}
 	}
 }

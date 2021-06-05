@@ -12,7 +12,12 @@ public class Matrix3D extends Matrix<MatrixElement<Point3D>>{
 	}
 
 	@Override
-	public List<MatrixElement<Point3D>> getBiggerSequence() throws NotImplementedException {
+	public List<MatrixElement<Point3D>> getLongestSequence() throws NotImplementedException {
+		throw new NotImplementedException("No implemented");
+	}
+
+	@Override
+	public void printLongestSequence() throws NotImplementedException {
 		throw new NotImplementedException("No implemented");
 	}
 
