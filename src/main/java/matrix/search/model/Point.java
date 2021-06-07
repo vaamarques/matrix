@@ -1,7 +1,7 @@
 package matrix.search.model;
 
 /**
- * 
+ * Point in 2D Dimension
  * @author vaamarques
  *
  */
@@ -31,8 +31,10 @@ public class Point {
 	}
 
 	/**
-	 * Check if otherPoint is adjacent Assume that adjacent points should share the
-	 * same column or the same row
+	 * Check if this point and <code>otherPoint</code> are adjacent
+	 * <p>
+	 * Assume that adjacent points should share the same column or the same row
+	 * </p>
 	 * 
 	 * @param otherPoint
 	 * @return
@@ -50,5 +52,5 @@ public class Point {
 	public String toString() {
 		return "Point [x=" + x + ", y=" + y + "]";
 	}
-	
+
 }

@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import matrix.search.exception.InvalidMatrixExcpetion;
+import matrix.search.exception.InvalidMatrixException;
 import matrix.search.model.Matrix2D;
 import matrix.search.model.MatrixElement;
 import matrix.search.model.Point;
@@ -32,38 +32,29 @@ public class TestMatrix {
 	}
 
 	@Test
-	public void testNotValidMatrix2D3x3() throws InvalidMatrixExcpetion {
+	public void testNotValidMatrix2D3x3() throws Exception {
 
 		System.out.println("Not valid Matrix2D 3x3 ");
 
 		Matrix2D matrix = new Matrix2D(3, 3);
 
-		assertThrows(
-				InvalidMatrixExcpetion.class,
-	            () -> matrix.setElements(getNotValidMatrixElements(3, 3)));
-		
-		assertThrows(
-				InvalidMatrixExcpetion.class,
-	            () -> matrix.printMatrix());
-		
-		matrix.printLongestSequence();
+		assertThrows(InvalidMatrixException.class, () -> matrix.setElements(getNotValidMatrixElements(3, 3)));
 
-		System.out.println();
 	}
 
 	@Test
-	public void testMatrix2D3x3() throws InvalidMatrixExcpetion {
+	public void testMatrix2D3x3() throws Exception {
 
 		System.out.println("Matrix2D 3x3 ");
 
 		Matrix2D matrix = new Matrix2D(3, 3);
-		
+
 		matrix.fillMatrixRandomly();
-		
-	    matrix.printMatrix();
+
+		matrix.printMatrix();
 
 		matrix.printLongestSequence();
-		
+
 		System.out.println();
 	}
 
@@ -109,7 +100,7 @@ public class TestMatrix {
 
 		System.out.println();
 	}
-	
+
 	@Test
 	public void testMatrix2D2x2() throws Exception {
 
@@ -123,7 +114,51 @@ public class TestMatrix {
 
 		System.out.println();
 	}
+
+	@Test
+	public void testMatrix2D2x6() throws Exception {
+
+		System.out.println("Matrix2D 2x6 ");
+
+		Matrix2D matrix = new Matrix2D(2, 6);
+
+		matrix.fillMatrixRandomly();
+		matrix.printMatrix();
+		matrix.printLongestSequence();
+
+		System.out.println();
+	}
 	
+	
+	@Test
+	public void testMatrix2D100x3() throws Exception {
+
+		System.out.println("Matrix2D 100x3 ");
+
+		Matrix2D matrix = new Matrix2D(100, 3);
+
+		matrix.fillMatrixRandomly();
+		matrix.printMatrix();
+		matrix.printLongestSequence();
+
+		System.out.println();
+	}
+	
+	
+	@Test
+	public void testMatrix2D100x100() throws Exception {
+
+		System.out.println("Matrix2D 100x100 ");
+
+		Matrix2D matrix = new Matrix2D(100, 100);
+
+		matrix.fillMatrixRandomly();
+		matrix.printMatrix();
+		matrix.printLongestSequence();
+
+		System.out.println();
+	}
+
 	public Set<MatrixElement<Point>> getNotValidMatrixElements(int numRows, int numColumns) {
 
 		Set<MatrixElement<Point>> elements = new LinkedHashSet<MatrixElement<Point>>();

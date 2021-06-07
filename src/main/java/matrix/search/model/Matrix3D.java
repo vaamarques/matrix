@@ -4,6 +4,11 @@ import java.util.List;
 
 import matrix.search.exception.NotImplementedException;
 
+/**
+ * Matrix with 3D 
+ * @author vaamarques
+ *
+ */
 public class Matrix3D extends Matrix<MatrixElement<Point3D>>{
 
 	@Override

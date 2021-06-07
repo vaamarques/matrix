@@ -3,7 +3,8 @@ package matrix.search.model;
 import java.util.List;
 
 /**
- * Matrix with unique elements
+ * Base class for Matrix
+ * 
  * @author vaamarques
  *
  */
@@ -11,21 +12,29 @@ public abstract class Matrix<T extends MatrixElement<? extends Point>> {
 
 	/**
 	 * Print matrix legibly to output
-	 * @throws Throwable
+	 * <p>
+	 * Each column element is separated by spaces and each row in a single line
+	 * </p>
+	 * 
+	 * @throws Exception
 	 */
-	public abstract void printMatrix() throws Throwable;
+	public abstract void printMatrix() throws Exception;
 
 	/**
-	 * Find the longest sequence of values sorted in ascendant order in adjacent coordinates
-	 * @return
-	 * @throws Throwable
+	 * Find the longest sequence of values sorted in ascendant order in adjacent
+	 * positions
+	 * 
+	 * @return longest sequence of matrix values
+	 * @throws Exception
 	 */
-	public abstract List<T> getLongestSequence() throws Throwable;
-	
+	public abstract List<T> getLongestSequence() throws Exception;
+
 	/**
-	 * Print longest sequence legibly to output
-	 * @throws Throwable
+	 * Print longest sequence legibly to output Each value must be separated by
+	 * space
+	 * 
+	 * @throws Exception
 	 */
-	public abstract void printLongestSequence() throws Throwable;
+	public abstract void printLongestSequence() throws Exception;
 
 }

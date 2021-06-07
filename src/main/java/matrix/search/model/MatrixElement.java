@@ -1,7 +1,7 @@
 package matrix.search.model;
 
 /**
- * Element of a matrix that represents a point with an value
+ * Element of a matrix that represents a point with respective value
  * @author vaamarques
  *
  * @param <T> Point
