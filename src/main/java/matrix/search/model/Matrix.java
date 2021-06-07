@@ -31,8 +31,10 @@ public abstract class Matrix<T extends MatrixElement<? extends Point>> {
 	public abstract List<T> getLongestSequence() throws Exception;
 
 	/**
-	 * Print longest sequence legibly to output Each value must be separated by
-	 * space
+	 * Print longest sequence legibly to output
+	 * <p>
+	 * Each value must be separated by space
+	 * </p>
 	 * 
 	 * @throws Exception
 	 */
