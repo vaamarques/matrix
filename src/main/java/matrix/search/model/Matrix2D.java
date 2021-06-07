@@ -13,7 +13,7 @@ import matrix.search.exception.InvalidMatrixException;
 import matrix.search.exception.LongestSequenceMatrixException;
 
 /**
- * Matrix in 2D with unique value elements
+ * Matrix in 2D with unique integer value elements
  * 
  * @author vaamarques
  *
