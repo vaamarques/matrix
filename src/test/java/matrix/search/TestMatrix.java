@@ -131,26 +131,11 @@ public class TestMatrix {
 	
 	
 	@Test
-	public void testMatrix2D100x3() throws Exception {
+	public void testMatrix2D10x5() throws Exception {
 
-		System.out.println("Matrix2D 100x3 ");
+		System.out.println("Matrix2D 10x5 ");
 
-		Matrix2D matrix = new Matrix2D(100, 3);
-
-		matrix.fillMatrixRandomly();
-		matrix.printMatrix();
-		matrix.printLongestSequence();
-
-		System.out.println();
-	}
-	
-	
-	@Test
-	public void testMatrix2D100x100() throws Exception {
-
-		System.out.println("Matrix2D 100x100 ");
-
-		Matrix2D matrix = new Matrix2D(100, 100);
+		Matrix2D matrix = new Matrix2D(10, 5);
 
 		matrix.fillMatrixRandomly();
 		matrix.printMatrix();
