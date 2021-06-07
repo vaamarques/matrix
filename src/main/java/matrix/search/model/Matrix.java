@@ -13,7 +13,8 @@ public abstract class Matrix<T extends MatrixElement<? extends Point>> {
 	/**
 	 * Print matrix legibly to output
 	 * <p>
-	 * Each column element is separated by spaces and each row in a single line
+	 * Each column element is separated by one space (or several spaces if make
+	 * legible) and each row in a single line
 	 * </p>
 	 * 
 	 * @throws Exception
